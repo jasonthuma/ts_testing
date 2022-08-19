@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1660933794461" clover="3.2.0">
-  <project timestamp="1660933794461" name="All files">
+<coverage generated="1660936245751" clover="3.2.0">
+  <project timestamp="1660936245751" name="All files">
     <metrics statements="49" coveredstatements="49" conditionals="13" coveredconditionals="13" methods="20" coveredmethods="20" elements="82" coveredelements="82" complexity="0" loc="49" ncloc="49" packages="1" files="3" classes="3"/>
     <file name="Calculator.ts" path="/Users/erickcaballero/Desktop/ts_testing/src/Calculator.ts">
       <metrics statements="17" coveredstatements="17" conditionals="1" coveredconditionals="1" methods="6" coveredmethods="6"/>
       <line num="3" count="2" type="stmt"/>
-      <line num="6" count="8" type="stmt"/>
-      <line num="9" count="5" type="stmt"/>
+      <line num="6" count="4" type="stmt"/>
+      <line num="9" count="1" type="stmt"/>
       <line num="13" count="1" type="stmt"/>
       <line num="14" count="1" type="stmt"/>
       <line num="15" count="1" type="stmt"/>
