@@ -110,6 +110,7 @@ describe("Calculator operations tests", () => {
     testCalc.value = 4;
     testCalc.setMem1(testCalc.value);
     testCalc.multiply(testCalc.getMem1());
+    expect(testCalc.value).toBe(16);
   });
 
   it("should not change the current value if someone tries to use the mem before assignment", () => {
@@ -146,24 +147,24 @@ describe("Calculator operations tests", () => {
   */
   it("should be able to clear the current value while maintaining any saved mem", () => {
     let testCalc: Calculator = new Calculator();
-    testCalc.add(18);
-    expect(testCalc.getValue()).toBe(18);
-    testCalc.setMem1(testCalc.getValue());
-    expect(testCalc.getMem1()).toBe(18);
+    testCalc.value = 18;
+    expect(testCalc.value).toBe(18);
+    testCalc.mem1 = testCalc.value;
+    expect(testCalc.mem1).toBe(18);
     testCalc.clear();
-    expect(testCalc.getValue()).toBe(0);
-    expect(testCalc.getMem1()).toBe(18);
+    expect(testCalc.value).toBe(0);
+    expect(testCalc.mem1).toBe(18);
   });
 
   it("should be able to clear all saved values using clearAll", () => {
     let testCalc: Calculator = new Calculator();
-    testCalc.add(18);
-    expect(testCalc.getValue()).toBe(18);
-    testCalc.setMem1(testCalc.getValue());
-    expect(testCalc.getMem1()).toBe(18);
+    testCalc.value = 18;
+    expect(testCalc.value).toBe(18);
+    testCalc.mem1 = testCalc.value;
+    expect(testCalc.mem1).toBe(18);
     testCalc.clearAll();
-    expect(testCalc.getValue()).toBe(0);
-    expect(testCalc.getMem1()).toBe(0);
+    expect(testCalc.value).toBe(0);
+    expect(testCalc.mem1).toBe(0);
   });
 
   it("should be able square the current value", () => {
