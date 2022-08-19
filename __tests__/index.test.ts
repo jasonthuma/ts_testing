@@ -9,12 +9,12 @@ describe("Calculator initialization and getters / setters tests", () => {
   it("should be able to set the value", () => {
     let testCalc: Calculator = new Calculator();
     testCalc.setValue(8);
-    expect(testCalc.getValue()).toBe(8);
+    expect(testCalc.value).toBe(8);
   });
 
   it("should be able to get the current value", () => {
     let testCalc: Calculator = new Calculator();
-    expect(testCalc.getValue()).toBe(0);
+    expect(testCalc.value).toBe(0);
   });
 
   it("should initialize with a mem1 of Undefined", () => {
@@ -24,13 +24,13 @@ describe("Calculator initialization and getters / setters tests", () => {
 
   it("should be able to get mem1", () => {
     let testCalc: Calculator = new Calculator();
-    expect(testCalc.getMem1()).toBe(undefined);
+    expect(testCalc.mem1).toBe(undefined);
   });
 
   it("should be able to set mem1", () => {
     let testCalc: Calculator = new Calculator();
     testCalc.setMem1(8);
-    expect(testCalc.getMem1()).toBe(8);
+    expect(testCalc.mem1).toBe(8);
   });
 });
 
@@ -38,7 +38,7 @@ describe("Calculator operations tests", () => {
   it("should be able to add a number to the current value", () => {
     let testCalc: Calculator = new Calculator();
     testCalc.add(8);
-    expect(testCalc.getValue()).toBe(8);
+    expect(testCalc.value).toBe(8);
   });
 
   it("should only call the add method once when adding a number", () => {
@@ -51,7 +51,7 @@ describe("Calculator operations tests", () => {
   it("should be able to subtract a number from the current value", () => {
     let testCalc: Calculator = new Calculator();
     testCalc.subtract(8);
-    expect(testCalc.getValue()).toBe(-8);
+    expect(testCalc.value).toBe(-8);
   });
 
   it("should only call the subtract method once per subtraction", () => {
@@ -64,11 +64,11 @@ describe("Calculator operations tests", () => {
   it("should be able to multiply the current value by a given number", () => {
     let testCalc: Calculator = new Calculator();
     testCalc.multiply(8);
-    expect(testCalc.getValue()).toBe(0);
+    expect(testCalc.value).toBe(0);
 
-    testCalc.add(4);
+    testCalc.value = 4;
     testCalc.multiply(2);
-    expect(testCalc.getValue()).toBe(8);
+    expect(testCalc.value).toBe(8);
   });
 
   it("should only call the multiply method once", () => {
@@ -81,21 +81,21 @@ describe("Calculator operations tests", () => {
   it("should be able to divide the current value by a given number", () => {
     let testCalc: Calculator = new Calculator();
     testCalc.divide(8);
-    expect(testCalc.getValue()).toBe(0);
+    expect(testCalc.value).toBe(0);
 
-    testCalc.add(4);
+    testCalc.value = 4;
     testCalc.divide(2);
-    expect(testCalc.getValue()).toBe(2);
+    expect(testCalc.value).toBe(2);
   });
 
   it("should not allow a user to try to divide by 0", () => {
     let testCalc: Calculator = new Calculator();
     testCalc.divide(0);
-    expect(testCalc.getValue()).toBe(0);
+    expect(testCalc.value).toBe(0);
 
-    testCalc.add(4);
+    testCalc.value = 4;
     testCalc.divide(0);
-    expect(testCalc.getValue()).toBe(4);
+    expect(testCalc.value).toBe(4);
   });
 
   it("should only call the divide method once", () => {
@@ -108,7 +108,7 @@ describe("Calculator operations tests", () => {
   it("should be able to save the current value to mem1 then use it in an operation", () => {
     let testCalc: Calculator = new Calculator();
     testCalc.value = 4;
-    testCalc.setMem1(testCalc.getValue());
+    testCalc.setMem1(testCalc.value);
     testCalc.multiply(testCalc.getMem1());
   });
 
@@ -129,7 +129,7 @@ describe("Calculator operations tests", () => {
     This would probably be a better way to test than what I had originally, 
     do each test specifically for one single operation 
   */
-  /* The commented out section is all new
+  /* The commented out section here is all new
 
     it("should not change the current value if someone tries to use the mem to subtract before assignment", () => {
       let testCalc: Calculator = new Calculator();
@@ -169,16 +169,16 @@ describe("Calculator operations tests", () => {
   it("should be able square the current value", () => {
     let testCalc: Calculator = new Calculator();
     testCalc.square();
-    expect(testCalc.getValue()).toBe(0);
-    testCalc.add(8);
+    expect(testCalc.value).toBe(0);
+    testCalc.value = 8;
     testCalc.square();
-    expect(testCalc.getValue()).toBe(64);
+    expect(testCalc.value).toBe(64);
   });
 
   it("should be able to find the square root of the current value", () => {
     let testCalc: Calculator = new Calculator();
-    testCalc.add(4);
+    testCalc.value = 4;
     testCalc.squareRoot();
-    expect(testCalc.getValue()).toBe(2);
+    expect(testCalc.value).toBe(2);
   });
 });
